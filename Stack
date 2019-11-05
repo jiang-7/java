@@ -1,0 +1,33 @@
+public class Stack {
+    //利用数组辅助实现栈
+    //创建一个数组
+    private int[] array = new int[100];
+    //栈的初始大小
+    private int size = 0;
+    //入栈
+    public  void push(int i) {
+        array[size] = i;
+        size++;
+    }// end push
+    //出栈
+    public int pop() {
+        if (size == 0) {
+            return Integer.parseInt( null );
+        }
+        int ret = array[size - 1];
+        size--;
+        return ret;
+    }// end pop
+    //取栈顶元素
+    public int peek(int size){
+        if(size ==0){
+            return Integer.parseInt( null );
+        }
+        return array[size-1];
+    }// end peek
+    public int size(){
+        System.out.println( size );
+        return size;
+    }// end size
+
+}// end Stack
