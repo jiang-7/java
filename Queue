@@ -1,0 +1,68 @@
+# java
+class Node{
+    //创建一个链表
+    int val;
+    Node next;
+    Node (int val, Node next) {
+        this.val=val;
+        this.next=next;
+    }// end Node
+    Node (int val){
+        this (val,null);
+    }
+}// end class Node
+public class Queue {
+    //利用链表实现一个队列
+    private Node head=null;
+    private Node tail=null;
+    //记录链表长度
+    private int size=0;
+    //队列三种核心操作:入队列offer,出队列pop,取队顶元素peek.
+    //入队列
+    public void offer(int i){
+        Node node=new Node(i);
+        //如果队列为空,则head=node
+        if (tail==null){
+            head=node;
+        }else{
+            //队列不为空
+            tail.next=node;
+        }
+        tail=node;
+        size++;
+    }//end offer
+    //出队列
+    public int poll(){
+       if(head==tail){
+           return Integer.parseInt( null );
+       }//end if
+        //利用oldhead的记录出队列元素
+        Node oldhead=head;
+        head=head.next;
+        //如果出队列结点为队列中最后一个元素,将tail也置空
+        if(head==null){
+            tail=null;
+        }
+        size--;
+        return oldhead.val;
+    }//end poll
+    //取队列首元素
+    public int peek(){
+        if(head==tail){
+            return Integer.parseInt( null );
+        }
+        Node oldhead=head;
+        return oldhead.val;
+    }//end peek
+    public int size(){
+        return size;
+    }
+    public static void main(String[] args) {
+        Queue Offer=new Queue();
+        Offer.offer(1);
+        Offer.offer(2);
+        Offer.offer(3);
+        System.out.println(Offer.size());
+        System.out.println(Offer.poll());
+    }
+}// end class Queue
