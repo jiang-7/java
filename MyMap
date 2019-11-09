@@ -1,0 +1,34 @@
+package Package1109;
+
+import java.util.Map;
+import java.util.HashMap;
+
+public class MyMap {
+    public static void main(String[] args){
+        //Map是接口,在new操作的时候可以选择new->HashMap或者TreeMap
+        Map<String,String>  map = new HashMap<>(  );
+        //插入key-value
+        map.put("年","2019");
+        map.put("月","11");
+        map.put("日","09");
+        map.put("name","jiang");
+        System.out.println( map.get("name") );
+        System.out.println( map.getOrDefault("frist name" ,"未知" ) );
+        //如果一个key有对应的value,新的put会用新value覆盖原来的value
+        map.put("name","jing");
+        System.out.println( map.get("name") );
+        //判断是否包含name/frist name这个key,返回值是boolean
+        System.out.println( map.containsKey("name"));
+        System.out.println( map.containsKey("frist name"));
+        //判断是否包含jing/jiang这个value
+        System.out.println( map.containsValue("jing"));
+        System.out.println( map.containsValue("jiang"));
+        //for循环遍历,将所有键值对返回
+        for (Map.Entry<String,String>entry:map.entrySet()){
+            System.out.println( entry.getKey());
+            System.out.println( entry.getValue());
+        }//end for
+        System.out.println(map.isEmpty());
+        System.out.println( map.size());
+    }//end main
+}//end Map
