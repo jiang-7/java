@@ -1,0 +1,24 @@
+import java.util.Collection;
+import java.util.ArrayList;
+public class MyCollection {
+    public static void main(String[] args){
+       //new一个ArrayList类
+       Collection<String> List=new ArrayList<>();
+       //将元素放入集合内
+       List.add( "jiang" );
+       List.add( "jing" );
+       List.add( "haha" );
+       //for循环遍历输出
+       for (String s:List) {
+            System.out.println(s);
+       }//end for
+        System.out.println( List.isEmpty() );
+        System.out.println(List.size());
+        List.remove("jiang");
+        System.out.println( List.isEmpty() );
+        System.out.println(List.size());
+        List.clear();
+        System.out.println( List.isEmpty() );
+        System.out.println(List.size());
+    }//end main
+}//end Collection
