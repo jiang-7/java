@@ -1,0 +1,21 @@
+class  Sort{
+    public static void insertSort(int[] array) {
+        for (int bound = 1; bound < array.length; bound++) {
+            int tmp = array[bound];
+            int cur = bound - 1;
+            for (; cur >= 0; cur--) {
+                if (array[cur] > tmp) {
+                    array[cur + 1] = array[cur];
+                } else {
+                    break;
+                }//end else
+            }//end for
+            array[cur + 1] = tmp;
+        }//end for
+    }//end insertSort
+    public static void main(String[] args) {
+        int[] arr = {7, 4, 1, 8, 5, 2, 0, 9,6,3};
+        insertSort(arr);
+        System.out.println(Arrays.toString(arr));
+    }//end main
+}//end Sort
