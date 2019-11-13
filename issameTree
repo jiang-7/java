@@ -1,0 +1,37 @@
+public class Tree {
+
+    static class TreeNode{
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode(int val) {
+            this.val = val;
+        }
+    }
+    public static boolean issameTree(TreeNode q, TreeNode p){
+
+        if(p==null && q==null){
+            return true;
+        }
+        if(p==null || q==null){
+            return false;
+        }
+        return p.val == q.val && issameTree( p.left, q.left ) && issameTree( p.right, q.right );
+    }
+    public static void main(String arg[]){
+        TreeNode A = new TreeNode(1);
+        TreeNode B = new TreeNode(2);
+        TreeNode C = new TreeNode(3);
+        TreeNode D = new TreeNode(4);
+        TreeNode E = new TreeNode(5);
+        TreeNode F = new TreeNode(6);
+        TreeNode G = new TreeNode(7);
+        A.left = B;
+        A.right = C;
+        B.left = D;
+        B.right = E;
+        E.left = G;
+        C.right = F;
+        issameTree(A,E);
+    }
+}
