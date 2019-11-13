@@ -1,0 +1,32 @@
+import java.util.Arrays;
+
+public class ShellSort {
+    public static void insertSortGap(int[] array,int gap) {
+            for (int i = 1; i < array.length; i++) {
+                int tmp = array[i];
+                int cur = i - gap;
+                for (; cur >= 0 && array[i]>tmp; cur-=gap) {
+                    if (array[cur] > tmp) {
+                        array[cur+gap]=array[cur];
+                    } else {
+                        break;
+                    }//end else
+                }
+                array[cur+gap] = tmp;
+            }
+    }
+    public static void shellSort(int[] array){
+        //利用gap对数组进行分组
+        int gap=array.length;
+        while (gap>1) {
+            insertSortGap(array,gap);
+            gap=(gap/3)+1;
+        }
+    insertSortGap( array,1 );
+    } //end s hellSort
+    public static void main(String[] args) {
+        int[] arr = {7, 4, 1, 8, 5, 2, 9, 6,3};
+        shellSort(arr);
+        System.out.println(Arrays.toString(arr));
+    }//end main
+}//end Sort
