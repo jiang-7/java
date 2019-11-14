@@ -3,27 +3,29 @@ import java.util.Arrays;
 public class ShellSort {
     public static void insertSortGap(int[] array,int gap) {
             for (int i = 1; i < array.length; i++) {
+                //利用tmp储存array[i]的值
                 int tmp = array[i];
+                //cur为分组后array[i]前一项元素
                 int cur = i - gap;
-                for (; cur >= 0 && array[i]>tmp; cur-=gap) {
-                    if (array[cur] > tmp) {
+                //如果cur未越界并且array[cur]的值大于tmp
+                for (; cur >= 0 && array[cur]>tmp; cur-=gap) {
+                    //令cur+gap=cur,tmp继续向前比较
                         array[cur+gap]=array[cur];
-                    } else {
-                        break;
-                    }//end else
-                }
+                    }
+                    //cur的值小于tmp,cur+gap=tmp
                 array[cur+gap] = tmp;
+                }
+
             }
-    }
     public static void shellSort(int[] array){
         //利用gap对数组进行分组
         int gap=array.length;
         while (gap>1) {
+            gap=gap/3;
             insertSortGap(array,gap);
-            gap=(gap/3)+1;
         }
     insertSortGap( array,1 );
-    } //end s hellSort
+    } //end shellSort
     public static void main(String[] args) {
         int[] arr = {7, 4, 1, 8, 5, 2, 9, 6,3};
         shellSort(arr);
