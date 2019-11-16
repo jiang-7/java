@@ -1,8 +1,3 @@
-package Package1109;
-
-import java.util.Map;
-import java.util.HashMap;
-
 public class MyMap {
     public static void main(String[] args){
         //Map是接口,在new操作的时候可以选择new->HashMap或者TreeMap
@@ -23,7 +18,12 @@ public class MyMap {
         //判断是否包含jing/jiang这个value
         System.out.println( map.containsValue("jing"));
         System.out.println( map.containsValue("jiang"));
-        //for循环遍历,将所有键值对返回
+        //打印key
+        for(String key:map.keySet()){
+            System.out.println( key );
+        }
+        //for循环遍历,将所有键值对返回,打印所有键值对
+        //entry,条目.每个键值对就是一个entry
         for (Map.Entry<String,String>entry:map.entrySet()){
             System.out.println( entry.getKey());
             System.out.println( entry.getValue());
@@ -31,4 +31,4 @@ public class MyMap {
         System.out.println(map.isEmpty());
         System.out.println( map.size());
     }//end main
-}//end Map
+}//end MyMap
