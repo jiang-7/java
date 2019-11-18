@@ -1,0 +1,24 @@
+public void add(int pos, int elem) {
+        //pos==size也允许插入，此时相当于尾插
+        if (pos < 0 || pos > size){
+            //pos位置无效
+            return;
+        }
+        if (this.size >= this.data.length){
+            //当前容量不够，需要扩容
+            //申请空间，把原有数据拷贝过去
+            realloc();
+        }
+        if (pos == size){
+            //尾插，直接把新元素放到size下标的位置
+            this.data[pos]= elem;
+            this.size++;
+            return;
+        }
+        //处理插入在中间位置的情况，进行搬运，把后面的元素依次往后挪
+        for (int i = this.size ; i > pos;i--) {
+            this.data[i]=this.data[i - 1];
+        }
+        this.data[pos] = elem;
+        this.size++;
+    }
