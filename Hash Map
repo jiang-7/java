@@ -1,8 +1,0 @@
-HashMap<Node,Node> map = new HashMap<>();
- for(int cur=0;cur< val;cur++) {
-      HashMap.put( val, cur );
-}
-for(int cur=0;cur< val;cur++){
-      HashMap.get(val).next=HashMap.get(val.next);
-      HashMap.get(val).random=HashMap.get(val.random);
-}
