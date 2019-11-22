@@ -1,0 +1,32 @@
+import java.util.HashSet;
+import java.util.Set;
+
+public class test {
+    //在一行中输出坏掉的键。其中英文字母只输出大写，每个坏键只输出一次
+    public static void brokenKeyboard(String y, String s) {
+        //将实际输出的值放入哈希表中
+        Set<Character> set1 = new HashSet<>();
+        for (int x = 0; x < s.length(); x++) {
+            set1.add( s.charAt( x ) );
+        }
+        //用来储存坏键盘的值
+        Set<Character> set2 = new HashSet<>();
+        //循环遍历应该输出的字符串
+        for (int x = 0; x < y.length(); x++) {
+            //如果哪个数据没有出现在实际输出字符串中则其对应的键为坏键
+            if (set1.contains( y.charAt( x ) ) == false) {
+                if (set2.contains( y.charAt( x ) ) == false) {
+                    set2.add( y.charAt( x ) );
+                }//end if
+            } // end if
+        }//end for
+            System.out.println( set2 );
+    }//end brokenKeyboard
+
+        public static void main (String[]args){
+            //输入在2行中分别给出应该输入的文字、以及实际被输入的文字
+            String i = "Apple_741";//应该输入的值
+            String n = "Appe1";//实际输入的值
+            brokenKeyboard( i, n );
+        }//end main
+}//end test
