@@ -1,4 +1,21 @@
-public  List<Integer> preorderTraversal(TreeNode root){
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
+class Tree {
+
+    public  static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode(int x) { val=x; }
+        public String toString(){
+            return this.val + "";
+        }
+    }
+
+    //递归形式的先序访问
+    public  List<Integer> preorderTraversal1(TreeNode root){
         //新建一个链表用于存储遍历结果
        List<Integer> list=new ArrayList<>(  );
        if (root == null){
@@ -16,3 +33,43 @@ public  List<Integer> preorderTraversal(TreeNode root){
             NLRHelp( root.right, list );
         }
    }
+    //非递归形式的先序遍历
+    public static void  preorderTraversal2(TreeNode root){
+        //依靠一个栈来实现
+        Stack<TreeNode> stack = new Stack<>();
+        if(root==null){
+            return;
+        }
+        stack.push( root );
+        //如果栈为非空
+           while (stack.size()!=0){
+                //出栈
+               TreeNode cur=stack.pop();
+               System.out.println( cur );
+               //分别先后将cur的右子树和左子树入栈
+               if(cur.right != null){
+                   stack.push(cur.right);
+               }
+               if(cur.left != null){
+                   stack.push(cur.left);
+               }
+            }
+    }
+    public  static void main(String[] args){
+        TreeNode A = new TreeNode(1);
+        TreeNode B = new TreeNode(2);
+        TreeNode C = new TreeNode(3);
+        TreeNode D = new TreeNode(4);
+        TreeNode E = new TreeNode(5);
+        TreeNode F = new TreeNode(6);
+        TreeNode G = new TreeNode(7);
+        A.left = B;
+        A.right = C;
+        B.left = D;
+        B.right = E;
+        E.left = G;
+        C.right = F;
+        Tree tree = new Tree();
+        tree.preorderTraversal2(A);
+    }
+}
