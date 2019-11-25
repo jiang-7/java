@@ -1,0 +1,83 @@
+import java.util.Arrays;
+public class math {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	                                      
+		 
+			    int a[][]=CreateData(3,3);
+				int b[][]=CreateData(3,3);
+				int c[][]=add(a,b);
+				int d[][]=dev(a,b);
+				int e[][]=mul(a,b);
+				System.out.println("原始数组a为"+"\n");
+				Print(a);
+				 System.out.println("原始数组b为"+"\n");
+				 Print(b);
+				System.out.println("数组a加b为"+"\n");
+				Print(c);
+				System.out.println("数组a减b为"+"\n");
+				Print(d);
+				System.out.println("数组a乘b为"+"\n");
+				Print(e);
+				
+	}
+	public static  int[][] CreateData(int i,int j)  //产生随机二维数组  
+	{    int a[][]=new int[i][j];      //定义数组大小空间
+		for( i=0;i<a.length;i++)
+		{
+			for( j=0;j<a.length;j++)
+			{
+			a[i][j]=(int)(Math.random()*10);
+		    }
+		}
+		return a;
+	 }
+	public static int[][] add(int a[][] ,int b[][])   //矩阵相加
+	 {    int s[][]=new int [3][3];
+       for(int i=0;i<a.length;i++)
+       {
+     	  for(int j=0;j<a.length;j++)
+     	  {   
+     		  s[i][j]=a[i][j]+b[i][j];
+     	  }
+       }
+       return s;
+	 }
+	public static int[][] dev(int a[][] ,int b[][])    //矩阵相减
+	 {    int s[][]=new int [3][3];
+       for(int i=0;i<a.length;i++)
+       {
+     	  for(int j=0;j<b.length;j++)
+     	  {
+     		  s[i][j]=a[i][j]-b[i][j];
+     	  }
+       }
+       return s;
+	 }
+	public static int[][] mul(int a[][],int b[][])     //矩阵相乘
+	 {
+	  int s[][]=new int [3][3];
+       for(int i=0;i<a.length;i++)
+       {
+     	  for(int j=0;j<b.length;j++)
+     	  {
+     		  s[i][j]=a[i][0]*b[0][j]+a[i][1]*b[1][j]+a[i][2]*b[2][j];
+     	  }
+       }
+       return s;
+	 }
+	public static int[][] Print(int[][] a)     //打印
+	  {
+		 for(int i=0;i<a.length;i++)
+      {
+      	for(int j=0;j<a.length;j++)
+      	{
+      		System.out.print(a[i][j]+"\t");
+      	}System.out.println();
+      }
+		 return a;
+
+	  }	
+
+}
