@@ -1,0 +1,24 @@
+import java.util.Arrays;
+
+public class Sort {
+
+    public void BubbleSort(int[] arr){
+
+        //遍历数组，如果前一个的值大于后一个，交换。直到将这个最大值挪到数组的最后
+        for(int bound = 0;bound<arr.length-1;bound++) {
+            for (int i = 1; i < arr.length; i++) {
+                if (arr[i - 1] > arr[i]) {
+                    int tmp = arr[i - 1];
+                    arr[i - 1] = arr[i];
+                    arr[i] = tmp;
+                }// end if
+            }// end for
+        }
+        System.out.println(Arrays.toString(arr));
+    }//end BubbleSort
+    public static void main(String[] args){
+        Sort sort = new Sort();
+        int[]arr1={7,4,1};
+        sort.BubbleSort(arr1);
+    }// end main
+}//end Sort
