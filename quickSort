@@ -1,0 +1,30 @@
+ public static int[] quickSort(int[] nums, int start, int end){
+    //如果数组长度小于1直接return为空
+    if (nums.length < 1 ) return null;
+    //快速排序部分代码
+    int i = start;
+    int j = end;
+    int key = nums[i];
+//i!=j,一直循环
+    while(i<j) {
+        //
+        while (i<j&&nums[j]>key) {
+            j--;
+        }
+        if(i!=j&&nums[j] < key){
+            nums[i] = nums[j];
+            i++;
+        }
+        while (i<j&&nums[i]<key) {
+            i++;
+        }
+        if(nums[i] > key){
+            nums[j] = nums[i];
+            j--;
+        }
+    }
+     nums[i] = key;
+    if(i-1>start)quickSort( nums , i-1,j );
+    if(j+1<end)quickSort( nums,i,j+1 );
+    return nums;
+}//end quickSort
