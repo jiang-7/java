@@ -1,0 +1,14 @@
+public class test {
+    //泛型方法returnArray
+    public static <E> void printArray(E[] intputArray){
+        for(E element : intputArray){
+            System.out.println(element);
+        }
+    }//end printArray
+    public static void main(String[] args){
+        Integer[] intArray = {1,2,3,4,5,6,7};
+        Character[] charArray = {'e','r','t'};
+        printArray( intArray );
+        printArray( charArray );
+    }
+}
