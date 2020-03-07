@@ -1,0 +1,20 @@
+class Solution {
+    public int search(int[] nums, int target) {
+       //左界右界
+        int left =0;
+        int right = nums.length-1;
+        //一直循环查找直到左界右界相等
+        while(left<=right){
+            //int mid =(left+right)/2;
+            int mid = left+(right-left)/2;
+            if (target == nums[mid]){
+                return mid;
+            }else if(target < nums[mid]){
+                right=mid-1;
+            }else if(target > nums[mid]) {
+                left=mid+1;
+            }
+        }//end while
+        return -1;
+    }
+}
